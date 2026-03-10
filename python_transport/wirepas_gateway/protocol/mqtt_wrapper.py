@@ -13,7 +13,7 @@ from datetime import datetime
 from random import randrange
 
 from paho.mqtt import client as mqtt
-from paho.mqtt.client import connack_string
+from paho.mqtt.client import CallbackAPIVersion
 
 
 class MQTTWrapper(Thread):
@@ -52,6 +52,7 @@ class MQTTWrapper(Thread):
             self._use_websockets = False
 
         self._client = mqtt.Client(
+            callback_api_version=CallbackAPIVersion.VERSION2,
             client_id=settings.gateway_id,
             clean_session=not settings.mqtt_persist_session,
             transport=transport,
@@ -122,10 +123,10 @@ class MQTTWrapper(Thread):
         self.running = False
         self.connected = False
 
-    def _on_connect(self, client, userdata, flags, rc):
+    def _on_connect(self, client, userdata, connect_flags, reason_code, properties):
         # pylint: disable=unused-argument
-        if rc != 0:
-            logging.error("MQTT cannot connect: %s (%s)", connack_string(rc), rc)
+        if reason_code != 0:
+            logging.error("MQTT cannot connect: %s (%s)", reason_code.getName(), reason_code)
             self.running = False
             return
 
@@ -133,17 +134,19 @@ class MQTTWrapper(Thread):
         if self.on_connect_cb is not None:
             self.on_connect_cb()
 
-    def _on_disconnect(self, userdata, rc):
-        if rc != 0:
+    def _on_disconnect(self, client, userdata, disconnect_flags, reason_code, properties):
+        # pylint: disable=unused-argument
+        if reason_code != 0:
             logging.error(
                 "MQTT unexpected disconnection (network or broker originated):"
                 "%s (%s)",
-                connack_string(rc),
-                rc,
+                reason_code.getName(),
+                reason_code,
             )
             self.connected = False
 
-    def _on_publish(self, client, userdata, mid):
+    def _on_publish(self, client, userdata, mid, reason_code, properties):
+        # pylint: disable=unused-argument
         self._unpublished_mid_set.remove(mid)
         self._publish_monitor.on_publish_done()
         return
