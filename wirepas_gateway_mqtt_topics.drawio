@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram id="wirepas-gw-mqtt" name="Wirepas Gateway MQTT Topics">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1160" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="Wirepas Gateway — MQTT Topic Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="15" width="900" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ======== COMPONENT BOXES ======== -->
+
+        <mxCell id="comp_backend" value="Backend&#xa;Application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;verticalAlign=top;arcSize=3;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="200" height="1050" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_broker" value="MQTT Broker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;verticalAlign=top;arcSize=3;spacingTop=8;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="530" y="70" width="200" height="1050" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_gateway" value="Wirepas Gateway&#xa;(Transport Service)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;verticalAlign=top;arcSize=3;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="70" width="220" height="1050" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_sink" value="Wirepas Sink&#xa;(Sink Service)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;verticalAlign=top;arcSize=5;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="80" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp_nodes" value="Wirepas Mesh&#xa;Nodes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1365" y="360" width="170" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- ======== REQUEST TOPICS SECTION ======== -->
+
+        <mxCell id="sec_req" value="REQUEST TOPICS — Backend publishes, Gateway subscribes (QoS 2)" style="text;html=1;strokeColor=#FF6600;fillColor=#FFE8D0;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+          <mxGeometry x="260" y="120" width="740" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="req_1" value="gw-request/get_gw_info/{gw_id}" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="168" as="sourcePoint" /><mxPoint x="1020" y="168" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_2" value="gw-request/get_configs/{gw_id}" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="206" as="sourcePoint" /><mxPoint x="1020" y="206" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_3" value="gw-request/set_config/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="244" as="sourcePoint" /><mxPoint x="1020" y="244" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_4" value="gw-request/send_data/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="282" as="sourcePoint" /><mxPoint x="1020" y="282" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_5" value="gw-request/otap_status/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="320" as="sourcePoint" /><mxPoint x="1020" y="320" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_6" value="gw-request/otap_load_scratchpad/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="358" as="sourcePoint" /><mxPoint x="1020" y="358" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_7" value="gw-request/otap_process_scratchpad/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="396" as="sourcePoint" /><mxPoint x="1020" y="396" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_8" value="gw-request/otap_set_target_scratchpad/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="434" as="sourcePoint" /><mxPoint x="1020" y="434" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_9" value="gw-request/set_configuration_data_item/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="472" as="sourcePoint" /><mxPoint x="1020" y="472" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="req_10" value="gw-request/get_configuration_data_item/{gw_id}/+" style="edgeStyle=none;html=1;strokeColor=#FF6600;fontColor=#FF6600;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="510" as="sourcePoint" /><mxPoint x="1020" y="510" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- DIVIDER 1 -->
+        <mxCell id="div1" value="" style="edgeStyle=none;html=1;strokeColor=#AAAAAA;strokeWidth=1;endArrow=none;startArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="40" y="543" as="sourcePoint" /><mxPoint x="1260" y="543" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ======== RESPONSE TOPICS SECTION ======== -->
+
+        <mxCell id="sec_resp" value="RESPONSE TOPICS — Gateway publishes, Backend subscribes (QoS 2)" style="text;html=1;strokeColor=#0066CC;fillColor=#D0E8FF;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+          <mxGeometry x="260" y="555" width="740" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="resp_1" value="gw-response/get_gw_info/{gw_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="597" as="sourcePoint" /><mxPoint x="240" y="597" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_2" value="gw-response/get_configs/{gw_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="633" as="sourcePoint" /><mxPoint x="240" y="633" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_3" value="gw-response/set_config/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="669" as="sourcePoint" /><mxPoint x="240" y="669" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_4" value="gw-response/send_data/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="705" as="sourcePoint" /><mxPoint x="240" y="705" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_5" value="gw-response/otap_status/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="741" as="sourcePoint" /><mxPoint x="240" y="741" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_6" value="gw-response/otap_load_scratchpad/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="777" as="sourcePoint" /><mxPoint x="240" y="777" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_7" value="gw-response/otap_process_scratchpad/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="813" as="sourcePoint" /><mxPoint x="240" y="813" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_8" value="gw-response/otap_set_target_scratchpad/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="849" as="sourcePoint" /><mxPoint x="240" y="849" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_9" value="gw-response/set_configuration_data_item/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="885" as="sourcePoint" /><mxPoint x="240" y="885" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="resp_10" value="gw-response/get_configuration_data_item/{gw_id}/{sink_id}" style="edgeStyle=none;html=1;strokeColor=#0066CC;fontColor=#0066CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="921" as="sourcePoint" /><mxPoint x="240" y="921" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- DIVIDER 2 -->
+        <mxCell id="div2" value="" style="edgeStyle=none;html=1;strokeColor=#AAAAAA;strokeWidth=1;endArrow=none;startArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="40" y="948" as="sourcePoint" /><mxPoint x="1260" y="948" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ======== EVENT TOPICS SECTION ======== -->
+
+        <mxCell id="sec_event" value="EVENT TOPICS — Gateway publishes, Backend subscribes (QoS 1)" style="text;html=1;strokeColor=#009933;fillColor=#D0F0D8;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+          <mxGeometry x="260" y="960" width="740" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="evt_1" value="gw-event/status/{gw_id}  [RETAIN | Last Will: OFFLINE]" style="edgeStyle=none;html=1;strokeColor=#009933;fontColor=#009933;strokeWidth=2;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="1002" as="sourcePoint" /><mxPoint x="240" y="1002" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="evt_2" value="gw-event/received_data/{gw_id}/{sink_id}/{network_id}/{src_ep}/{dst_ep}" style="edgeStyle=none;html=1;strokeColor=#009933;fontColor=#009933;strokeWidth=2;endArrow=block;endFill=1;fontSize=10;align=center;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1020" y="1042" as="sourcePoint" /><mxPoint x="240" y="1042" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ======== INTERNAL DATA FLOW ======== -->
+
+        <!-- Gateway <-> Sink: D-BUS / WNI (bidirectional dashed) -->
+        <mxCell id="dbus_arrow" value="D-BUS / WNI&#xa;Protocol" style="edgeStyle=none;html=1;strokeColor=#9933CC;fontColor=#9933CC;strokeWidth=2;endArrow=open;endFill=0;startArrow=open;startFill=0;fontSize=11;align=center;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1360" y="180" as="sourcePoint" /><mxPoint x="1240" y="180" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- Nodes -> Sink (Mesh Uplink) -->
+        <mxCell id="uplink_arrow" value="Mesh Uplink" style="edgeStyle=none;html=1;strokeColor=#9933CC;fontColor=#9933CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=11;align=right;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1450" y="360" as="sourcePoint" /><mxPoint x="1450" y="280" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- Sink -> Nodes (Mesh Downlink) -->
+        <mxCell id="downlink_arrow" value="Mesh Downlink" style="edgeStyle=none;html=1;strokeColor=#9933CC;fontColor=#9933CC;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=11;align=left;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1490" y="280" as="sourcePoint" /><mxPoint x="1490" y="360" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ======== LEGEND ======== -->
+
+        <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="1595" y="70" width="285" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1595" y="76" width="285" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l1" value="&#x2192;  gw-request/* (Backend publishes, QoS 2)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#FF6600;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="106" width="265" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l2" value="&#x2190;  gw-response/* (Gateway publishes, QoS 2)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#0066CC;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="131" width="265" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l3" value="&#x2190;  gw-event/* (Gateway publishes, QoS 1)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#009933;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="156" width="265" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l4" value="&#x21C4;  Internal (D-BUS / Mesh Radio)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#9933CC;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="181" width="265" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_l5" value="&#x2605;  RETAIN = Broker retains last message" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#009933;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="206" width="265" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ======== TOPIC CONSTANTS NOTE ======== -->
+
+        <mxCell id="constants_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#666666;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="1595" y="290" width="285" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="const_title" value="Topic Base Constants" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1595" y="296" width="285" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="const_1" value="BASE_REQUEST  = gw-request" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="323" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_2" value="BASE_RESPONSE = gw-response" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="345" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_3" value="BASE_GW_EVENT = gw-event" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="367" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_div" value="" style="edgeStyle=none;html=1;strokeColor=#AAAAAA;strokeWidth=1;endArrow=none;startArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1608" y="393" as="sourcePoint" /><mxPoint x="1873" y="393" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="const_4" value="{gw_id}     = Gateway ID (MAC-based)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="400" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_5" value="{sink_id}   = Sink identifier" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="422" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_6" value="+           = MQTT single-level wildcard" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="444" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="const_7" value="{src_ep/dst_ep} = Endpoint (0-255)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="466" width="265" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
